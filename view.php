@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('header.php'); ?>
 <body class="view">
 <div class="container inner">
@@ -26,7 +27,12 @@
     $statement->execute(); 
 
     //use fetchAll to store the results 
-    $records = $statement->fetchAll(); 
+    $records = $statement->fetchAll();
+
+    if(isset($_SESSION['name'])) {
+        echo "<p>Hello " . $_SESSION['name']. "!</p>"; 
+        echo "<a href='destroy.php'> Forget Me ! </a>";
+    }
 
     // echo out the top of the table 
 

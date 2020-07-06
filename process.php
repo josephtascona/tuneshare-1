@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once('header.php'); ?>
 <body class="add">
 <div class="container inner saved">
@@ -29,6 +30,13 @@
     $photo_size = $_FILES['photo']['size'];
     $id = null;
     $id = filter_input(INPUT_POST, 'user_id');
+
+    $_SESSION['name'] = $first_name . $last_name; 
+
+    if(isset($_SESSION['name'])) {
+        echo "<p>Hello " . $_SESSION['name']. "!</p>"; 
+        echo "<a href='destroy.php'> Forget Me ! </a>";
+    }
 
     //set up a flag variable
     $ok = true;
