@@ -66,6 +66,12 @@
     ?>
     <main>
     <h1>Share Your Fave Tunes</h1>
+      <?php
+        if(isset($_SESSION['name'])) {
+          echo "<p>Hello " . $_SESSION['name']. "!</p>"; 
+          echo "<a href='destroy.php'> Forget Me ! </a>";
+        }
+      ?>
       <form action="process.php" method="post" enctype="multipart/form-data" class="form">
         <!-- add hidden input with user id if editing -->
         <input type="hidden" name="user_id" value="<?php echo $id;?>">
